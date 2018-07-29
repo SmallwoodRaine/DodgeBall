@@ -1,4 +1,6 @@
 from math import *
+
+
 class Projectile:
     
     def __init__(self, x, y, initialVelocity):

@@ -1,11 +1,11 @@
 import pygame
+from math import *
+from pygame.locals import *
 import time
 import sys
 import wall
 import player
 import projectile
-from math import *
-from pygame.locals import *
 
 
 # constants
@@ -27,7 +27,7 @@ def createRock(x, y, velocity):
 
 
 class Game:
-    
+
     def __init__(self, displayWidth, displayHeight): 
         
         pygame.init()
@@ -36,6 +36,7 @@ class Game:
         self.gameDisplay = pygame.display.set_mode((
                                                     self.displayWidth,
                                                     self.displayHeight))
+        self.score = 0
     
     def gameLoop(self):
         
@@ -43,7 +44,6 @@ class Game:
         clock = pygame.time.Clock()
         pygame.display.set_caption('Ball')
         self.gameDisplay.fill(WHITE)
-        score = 0
         # creates game boudary
         boundary = wall.Wall(self.displayWidth, 0, self.displayHeight, 0)
         rocks = []
@@ -58,8 +58,8 @@ class Game:
                      i.x >= ball.x - BALLRADIUS) and 
                     (i.y <= ball.y + BALLRADIUS and 
                      i.y >= ball.y - BALLRADIUS)):
-                    pygame.quit()
-                    sys.exit()
+                    self.gameDisplay.fill(WHITE)
+                    return
             for event in pygame.event.get():
                 if event.type == QUIT:
                     pygame.quit()
@@ -81,16 +81,16 @@ class Game:
             # shooting projectiles
                     if event.key == K_a:
                         rocks.append(createRock(ball.x-25, ball.y, [-3, 0]))
-                        score += 1
+                        self.score += 1
                     elif event.key == K_d:
                         rocks.append(createRock(ball.x+25, ball.y, [3, 0]))
-                        score += 1
+                        self.score += 1
                     elif event.key == K_s:
                         rocks.append(createRock(ball.x, ball.y+25, [0, 3]))
-                        score += 1
+                        self.score += 1
                     elif event.key == K_w:
                         rocks.append(createRock(ball.x, ball.y-25, [0, -3]))    
-                        score += 1
+                        self.score += 1
 
             ball.x += xDiff
             ball.y -= yDiff
@@ -114,9 +114,8 @@ class Game:
                                    (int(rck.x), int(rck.y)), 5, 0)       
             pygame.draw.circle(
                 self.gameDisplay, BLACK, (int(ball.x), int(ball.y)), 20, 0)    
-            displayScore = scoreFont.render(str(score), 1, BLACK)
+            displayScore = scoreFont.render(str(self.score), 1, BLACK)
             self.gameDisplay.blit(displayScore, (520, 20))
             clock.tick(30)
             pygame.display.update()
-        pygame.quit()    
 
