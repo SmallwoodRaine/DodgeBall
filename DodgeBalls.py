@@ -1,4 +1,6 @@
+import sys
 import mainMenu
+sys.path.append('Resources')
 
 # constants
 DW = 1000

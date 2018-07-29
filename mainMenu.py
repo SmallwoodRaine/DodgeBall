@@ -1,11 +1,9 @@
 import pygame
 from pygame.locals import *
-from Resources import game
-from Resources import button
+import game
 from button import *
-import sys
 
-# constants
+#constants
 DW = 1000
 DH = 750
 WHITE = (255, 255, 255)

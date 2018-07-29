@@ -3,9 +3,9 @@ from math import *
 from pygame.locals import *
 import time
 import sys
-from Resources import wall
-from Resouces import player
-from Resources import projectile
+import wall
+import player
+import projectile
 
 
 # constants
