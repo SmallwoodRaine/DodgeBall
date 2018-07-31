@@ -1,7 +1,6 @@
 import sys
-import mainMenu
-sys.path.append('Resources')
 
+import Resources.mainMenu as mainMenu
 # Welcome to Dodgeball.
 # The point of the game it to shoot as many balls
 # as you can without dying.

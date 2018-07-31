@@ -1,9 +1,10 @@
 import pygame
 from pygame.locals import *
-import game
-from button import *
+import Resources.button
+from Resources.button import *
+import Resources.game as game
 
-#constants
+# constants
 DW = 1000
 DH = 750
 WHITE = (255, 255, 255)
@@ -42,7 +43,7 @@ class MainMenu:
         clock = pygame.time.Clock()
         pygame.display.set_caption('Main Menu')
         highScoreList = HighScoresList(
-                               "highScoreList.txt",
+                               "Resources/highScoreList.txt",
                                self.displayWidth,
                                self.displayHeight) 
         self.menuDisplay.fill(WHITE)

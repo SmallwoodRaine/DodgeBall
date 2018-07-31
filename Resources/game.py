@@ -1,11 +1,17 @@
 import pygame
-from math import *
-from pygame.locals import *
 import time
+
 import sys
-import wall
-import player
-import projectile
+
+import Resources.wall as wall
+
+import Resources.player as player
+
+import Resources.projectile as projectile
+
+from pygame.locals import *
+
+from math import *
 
 
 # constants
