@@ -1,4 +1,4 @@
-Welcome to Dodgeballs. This is a very simple game, that I created to give me some experience with pygame/python. The point of the game is to spawn as many balls as you can without being hit by the ones that you have already previously spawned. 
+Welcome to Dodgeballs. This is a very simple game, that I created to give me some experience with pygame/python. The point of the game is to spawn as many balls as you can without being hit by the ones that you have previously spawned. 
 
 Controls
   -shoot directionally with "w,a,s,d"
